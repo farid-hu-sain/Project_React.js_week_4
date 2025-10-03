@@ -1,4 +1,4 @@
-// FruitList.jsx
+
 import React from "react";
 
 function FruitList() {
