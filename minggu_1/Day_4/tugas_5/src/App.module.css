@@ -1,0 +1,13 @@
+.box {
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: lightblue;
+}
+
+@media (max-width: 600px) {
+  .box {
+    background-color: lightgreen;
+    padding: 8px;
+  }
+}
