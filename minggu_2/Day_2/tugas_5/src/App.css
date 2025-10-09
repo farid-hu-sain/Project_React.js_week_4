@@ -1,0 +1,60 @@
+/* MenuList.css */
+
+/* Tampilan umum */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Container utama setiap daftar */
+div {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Judul */
+h2 {
+  text-align: center;
+  color: #1e293b;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Daftar menu */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  color: #334155;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Efek hover biar ada rasa */
+li:hover {
+  background-color: #e2e8f0;
+  transform: translateX(4px);
+}
+
+/* Pesan kosong */
+p {
+  text-align: center;
+  color: #ef4444;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}

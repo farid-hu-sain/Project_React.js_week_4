@@ -1,0 +1,85 @@
+/* === Gaya Umum Aplikasi === */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f7f9fb;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container utama */
+.app-container {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Judul */
+h2 {
+  color: #222;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* === Komponen WarningBanner === */
+.warning {
+  background-color: #ffe066;
+  color: #222;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.warning:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* === Komponen PageStatus === */
+.status {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.status p {
+  margin: 0.3rem 0;
+}
+
+/* === Tombol === */
+button {
+  margin: 0.5rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #118ab2;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #073b4c;
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* === Garis pemisah === */
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 1.5rem 0;
+}

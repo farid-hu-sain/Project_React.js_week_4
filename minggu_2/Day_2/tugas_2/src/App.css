@@ -1,0 +1,61 @@
+/* Styling umum untuk aplikasi */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9fb;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container utama */
+.app-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Judul utama */
+.title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Kartu masing-masing Greeting */
+.card {
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Warna teks berbeda untuk user & guest */
+.greeting {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.user {
+  color: #2b9348; /* hijau untuk user login */
+}
+
+.guest {
+  color: #d62828; /* merah untuk guest */
+}
+
+/* Pesan tambahan */
+.message {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Efek hover ringan */
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
