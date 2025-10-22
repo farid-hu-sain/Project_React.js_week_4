@@ -1,4 +1,39 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Settings() {
+  const navigate = useNavigate();
+
+  const settings = [
+    { 
+      icon: "🔔", 
+      title: "Notifikasi", 
+      desc: "Kelola preferensi notifikasi Anda",
+      color: "#667eea",
+      path: "/dashboard/profile"
+    },
+    { 
+      icon: "🔒", 
+      title: "Keamanan", 
+      desc: "Update password dan keamanan akun",
+      color: "#764ba2",
+      path: "/contact"
+    },
+    { 
+      icon: "🌍", 
+      title: "Bahasa & Region", 
+      desc: "Pilih bahasa dan zona waktu",
+      color: "#f093fb",
+      path: "/"
+    },
+    { 
+      icon: "🎨", 
+      title: "Tampilan", 
+      desc: "Customize tema dan layout",
+      color: "#f5576c",
+      path: "/products"
+    }
+  ];
+
   return (
     <div style={{
       background: "white",
@@ -17,51 +52,30 @@ export default function Settings() {
       </h2>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        {[
-          { 
-            icon: "🔔", 
-            title: "Notifikasi", 
-            desc: "Kelola preferensi notifikasi Anda",
-            color: "#667eea"
-          },
-          { 
-            icon: "🔒", 
-            title: "Keamanan", 
-            desc: "Update password dan keamanan akun",
-            color: "#764ba2"
-          },
-          { 
-            icon: "🌍", 
-            title: "Bahasa & Region", 
-            desc: "Pilih bahasa dan zona waktu",
-            color: "#f093fb"
-          },
-          { 
-            icon: "🎨", 
-            title: "Tampilan", 
-            desc: "Customize tema dan layout",
-            color: "#f5576c"
-          }
-        ].map((setting, i) => (
-          <div key={i} style={{
-            padding: "1.5rem",
-            borderRadius: "12px",
-            background: "#f8f9fa",
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            border: "2px solid transparent"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = setting.color;
-            e.currentTarget.style.transform = "translateX(5px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "transparent";
-            e.currentTarget.style.transform = "translateX(0)";
-          }}>
+        {settings.map((setting, i) => (
+          <div
+            key={i}
+            onClick={() => navigate(setting.path)}
+            style={{
+              padding: "1.5rem",
+              borderRadius: "12px",
+              background: "#f8f9fa",
+              display: "flex",
+              alignItems: "center",
+              gap: "1rem",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              border: "2px solid transparent"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = setting.color;
+              e.currentTarget.style.transform = "translateX(5px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "transparent";
+              e.currentTarget.style.transform = "translateX(0)";
+            }}
+          >
             <div style={{
               fontSize: "2.5rem",
               width: "60px",

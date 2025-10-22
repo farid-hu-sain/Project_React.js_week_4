@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Profile() {
+  const navigate = useNavigate();
+
   return (
     <div style={{
       background: "white",
@@ -54,6 +58,26 @@ export default function Profile() {
             <div style={{ fontWeight: "bold", color: "#333" }}>{item.value}</div>
           </div>
         ))}
+      </div>
+
+      <div style={{ textAlign: "center", marginTop: "2rem" }}>
+        <button
+          onClick={() => navigate("/dashboard/settings")}
+          style={{
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+            color: "white",
+            border: "none",
+            padding: "0.75rem 1.5rem",
+            borderRadius: "10px",
+            cursor: "pointer",
+            fontWeight: "bold",
+            transition: "all 0.3s ease"
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+        >
+          ⚙️ Edit Pengaturan
+        </button>
       </div>
     </div>
   );
