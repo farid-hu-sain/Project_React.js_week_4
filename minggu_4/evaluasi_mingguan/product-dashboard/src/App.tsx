@@ -24,16 +24,46 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <nav className="flex items-center justify-between mb-6">
+      <nav className="flex items-center justify-between mb-6 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
         <div className="flex items-center gap-4">
-          <Link to="/products" className="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-2">
+          <Link 
+            to="/products" 
+            className="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-2"
+          >
             <span className="text-2xl">🛍️</span>
             Product Dashboard
           </Link>
-          <NavLink to="/products" className={({isActive}) => isActive ? 'active' : ''}>Products</NavLink>
-          {user && <NavLink to="/dashboard" className={({isActive}) => isActive ? 'active' : ''}>Dashboard</NavLink>}
+          <NavLink 
+            to="/products" 
+            className={({isActive}) => 
+              `px-4 py-2 rounded-lg font-medium transition-all duration-300 relative ${
+                isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-500 hover:text-blue-600 hover:bg-blue-50'
+              }`
+            }
+          >
+            Products
+          </NavLink>
+          {user && (
+            <NavLink 
+              to="/dashboard" 
+              className={({isActive}) => 
+                `px-4 py-2 rounded-lg font-medium transition-all duration-300 relative ${
+                  isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-500 hover:text-blue-600 hover:bg-blue-50'
+                }`
+              }
+            >
+              Dashboard
+            </NavLink>
+          )}
           {user?.role === 'user' && (
-            <NavLink to="/cart" className={({isActive}) => isActive ? 'active relative' : 'relative'}>
+            <NavLink 
+              to="/cart" 
+              className={({isActive}) => 
+                `px-4 py-2 rounded-lg font-medium transition-all duration-300 relative ${
+                  isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-500 hover:text-blue-600 hover:bg-blue-50'
+                }`
+              }
+            >
               Cart
               {cartItemCount > 0 && (
                 <span className="cart-badge">{cartItemCount}</span>
@@ -51,7 +81,16 @@ export default function App() {
               <button onClick={onLogout} className="btn-secondary">Logout</button>
             </>
           ) : (
-            <NavLink to="/login" className={({isActive}) => isActive ? 'active' : ''}>Login</NavLink>
+            <NavLink 
+              to="/login" 
+              className={({isActive}) => 
+                `px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                  isActive ? 'text-blue-600 bg-blue-50' : 'text-gray-500 hover:text-blue-600 hover:bg-blue-50'
+                }`
+              }
+            >
+              Login
+            </NavLink>
           )}
         </div>
       </nav>
@@ -64,18 +103,20 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
           <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
-          <Route path="*" element={<div className="card text-center py-12">
-            <div className="text-6xl mb-4">🌊</div>
-            <h3 className="text-xl font-semibold mb-2">Halaman Tidak Ditemukan</h3>
-            <p className="text-slate-600 mb-4">Maaf, halaman yang Anda cari tidak ada.</p>
-            <Link to="/products" className="btn-primary">Kembali ke Beranda</Link>
-          </div>} />
+          <Route path="*" element={
+            <div className="card text-center py-12">
+              <div className="text-6xl mb-4">🌊</div>
+              <h3 className="text-xl font-semibold mb-2">Halaman Tidak Ditemukan</h3>
+              <p className="text-slate-600 mb-4">Maaf, halaman yang Anda cari tidak ada.</p>
+              <Link to="/products" className="btn-primary">Kembali ke Beranda</Link>
+            </div>
+          } />
         </Routes>
       </ErrorBoundary>
 
-      <footer className="mt-8 text-center text-sm text-slate-500">
-        <div className="mb-2"></div>
-        © 2025 Made by jason IT 
+      <footer className="mt-12 pt-6 border-t border-gray-200 text-center text-sm text-slate-500 bg-gradient-to-br from-blue-50 to-white">
+        <div className="mb-2">💙</div>
+        © 2025 Made by jason IT | Tema Biru
       </footer>
     </div>
   )
