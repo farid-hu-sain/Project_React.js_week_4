@@ -8,7 +8,6 @@ export const PrivateRoute: React.FC<{children: React.ReactElement}> = ({ childre
   const location = useLocation();
 
   if (!user) {
-    // Simpan path yang ingin diakses untuk redirect setelah login
     setRedirectPath(location.pathname);
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

@@ -74,8 +74,8 @@ export default function App() {
       </ErrorBoundary>
 
       <footer className="mt-8 text-center text-sm text-slate-500">
-        <div className="mb-2">💙</div>
-        © 2025 Made by jason IT | Tema Biru
+        <div className="mb-2"></div>
+        © 2025 Made by jason IT 
       </footer>
     </div>
   )
