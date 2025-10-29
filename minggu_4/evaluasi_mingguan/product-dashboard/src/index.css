@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small helpers */
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-lighter: #dbeafe;
+  --muted: #6b7280;
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --accent: #7c3aed;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  scroll-behavior: smooth;
+}
+
+.app-shell {
+  @apply max-w-6xl mx-auto p-6;
+}
+
+/* Enhanced Card Component */
+.card {
+  @apply bg-white p-4 rounded-xl shadow-sm border border-gray-100 transition-all duration-300;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  @apply shadow-md border-blue-100;
+  transform: translateY(-2px);
+}
+
+/* Interactive Buttons */
+.btn-primary {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: white;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary));
+}
+
+.btn-secondary {
+  @apply px-4 py-2 rounded-lg font-medium border transition-all duration-300 transform hover:scale-105 active:scale-95;
+  border-color: var(--primary);
+  color: var(--primary);
+  background: white;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+}
+
+.btn-danger {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+  background: linear-gradient(135deg, var(--error), #b91c1c);
+  color: white;
+}
+
+.btn-success {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+  background: linear-gradient(135deg, var(--success), #047857);
+  color: white;
+}
+
+.btn-accent {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95;
+  background: linear-gradient(135deg, var(--accent), #6d28d9);
+  color: white;
+}
+
+/* Enhanced Navigation */
+nav {
+  @apply bg-white rounded-2xl shadow-sm p-4 mb-6 border border-gray-100;
+}
+
+nav a {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 relative;
+  color: var(--muted);
+}
+
+nav a:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+nav a.active {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Product Card Enhancements */
+.product-card {
+  @apply card cursor-pointer;
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.price-tag {
+  @apply font-bold text-lg;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Form Enhancements */
+input, textarea, select {
+  @apply border border-gray-300 rounded-lg px-3 py-2 transition-all duration-300;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  @apply border-blue-300 shadow-sm;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Cart Badge */
+.cart-badge {
+  @apply absolute -top-2 -right-2 rounded-full text-xs font-bold w-5 h-5 flex items-center justify-center;
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Success States */
+.success-checkmark {
+  @apply w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-white;
+  animation: bounce 0.6s;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Footer Enhancement */
+footer {
+  @apply mt-12 pt-6 border-t border-gray-200 text-center text-sm text-slate-500;
+  background: linear-gradient(135deg, #f0f9ff, #ffffff);
+}
+
+/* Responsive Grid Improvements */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary));
+}
+
+/* Notification and Alert Styles */
+.alert-info {
+  @apply bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded-lg;
+}
+
+.alert-success {
+  @apply bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg;
+}
+
+.alert-error {
+  @apply bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg;
+}
+
+.alert-warning {
+  @apply bg-yellow-50 border border-yellow-200 text-yellow-700 px-4 py-3 rounded-lg;
+}
+
+/* Badge Styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-primary {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-800;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.badge-error {
+  @apply bg-red-100 text-red-800;
+}
